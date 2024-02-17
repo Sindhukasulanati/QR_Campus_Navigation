@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="blocks.css">
+      <title>Document</title>
+      <style>
+
+          .header {
+              color: black;
+              padding: 10px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              position:absolute;
+              top: 0;
+              width: 100%;
+              z-index: 999;
+          }
+          
+          .header h1 {
+              margin: 0;
+          }
+
+          .logo {
+              width: 80px; /* Adjust as needed */
+              height: 80px; /* Adjust as needed */
+              margin-right: 10px; /* Adjust as needed */
+          }
+
+          .menu-toggle {
+              cursor: pointer;
+              display: block;
+              width: 30px;
+              height: 30px;
+              position: relative;
+          }
+          
+          .menu-toggle span {
+              display: block;
+              width: 100%;
+              height: 5px;
+              background-color: black;
+              margin: 5px 0;
+              transition: transform 0.3s, opacity 0.3s;
+          }
+
+          .menu-toggle.open span:first-child {
+              transform: rotate(45deg) translate(5px, 5px);
+          }
+          
+          .menu-toggle.open span:nth-child(2) {
+              opacity: 0;
+          }
+          
+          .menu-toggle.open span:last-child {
+              transform: rotate(-45deg) translate(5px, -5px);
+          }
+
+          .nav {
+              display: none;
+              position: absolute;
+              top: 50px;
+              right: 0;
+              background-color: whitesmoke;
+              padding: 10px;
+          }
+          
+          .nav.active {
+              display: block;
+          }
+          
+          .nav ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+          }
+          
+          .nav ul li {
+              position: relative;
+              margin-bottom: 10px;
+          }
+          
+          .nav ul li a {
+              color: black;
+              text-decoration: none;
+              font-size: 18px;
+              transition: color 0.3s;
+          }
+          
+          .nav ul li ul {
+              display: none;
+              position: absolute;
+              top: 0;
+              right: 100%;
+              background-color: white3;
+              border-radius: 5px;
+          }
+          
+          .nav ul li:hover ul {
+              display: block;
+          }
+          
+          .nav ul li ul li {
+              width: 100%;
+          }
+          
+          .nav ul li ul li a {
+              padding: 10px 20px;
+          }
+
+          .nav ul li a:hover {
+              color: #eca5a5;
+          }
+
+          .nav ul li ul li a:hover {
+              background-color: #555;
+          }
+
+          .buttonstest {
+              display:inline-flex;
+              align-items: center;
+              justify-content: center;
+            }
+            
+      </style>
+  </head>
+  
+  <body>
+    <center>
+      <header class="header">
+        <div>
+          <img onclick="return location.href='index.html';" src="vvitlogo.jpg" class="logo">
+        </div>
+        <h1>QR CAMPUS GUIDE - DEVOPS OPTIMIZED NAVIGATION</h1>
+        <div class="menu-toggle" id="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav class="nav" id="nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li>
+              <a href="#">Block A</a>
+              <ul>
+                <li><a href="A_Floor1.html">Floor1</a></li>
+                <li><a href="#">Floor2</a></li>
+                <li><a href="#">Floor3</a></li>
+                <li><a href="#">Floor4</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Block B</a>
+              <ul>
+                <li><a href="#">Floor1</a></li>
+                <li><a href="#">Floor2</a></li>
+                <li><a href="#">Floor3</a></li>
+                <li><a href="#">Floor4</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Block C</a>
+              <ul>
+                <li><a href="#">Floor1</a></li>
+                <li><a href="#">Floor2</a></li>
+                <li><a href="#">Floor3</a></li>
+                <li><a href="#">Floor4</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Block D</a>
+              <ul>
+                <li><a href="#">Floor1</a></li>
+                <li><a href="#">Floor2</a></li>
+                <li><a href="#">Floor3</a></li>
+                <li><a href="#">Floor4</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Central Block</a>
+              <ul>
+                <li><a href="#">Floor1</a></li>
+                <li><a href="#">Floor2</a></li>
+                <li><a href="#">Floor3</a></li>
+                <li><a href="#">Floor4</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Siemens Block</a>
+              <ul>
+                <li><a href="#">Floor1</a></li>
+                <li><a href="#">Floor2</a></li>
+                <li><a href="#">Floor3</a></li>
+                <li><a href="#">Floor4</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </center>
+
+    <div class="buttonstest">
+      <input type="radio" id="option1" name="options" value="option1" checked />
+      <label for="option1">Google Maps</label><br>
+    
+      <input type="radio" id="option2" name="options" value="option2" />
+      <label for="option2">QR Code</label><br />
+    </div>
+
+    <ol>
+      <br>
+
+      <div onclick="redirectToGoogleMaps1()"> 
+        <li >
+          <div class="icon"><i class="fa-solid fa-laptop"></i></div>
+          <div class="title">Central Block</div>
+          <div class="descr">Admin Block</div>
+        </li>
+      </div>
+
+      <div onclick="redirectToGoogleMaps2()"> 
+        <li >
+          <div class="icon"><i class="fa-solid fa-building"></i></div>
+          <div class="title">Block A</div>
+          <div class="descr">Sciences And Humanities Block</div>
+        </li>
+      </div>
+
+      <div onclick="redirectToGoogleMaps3()">
+        <li >
+          <div class="icon"><i class="fa-solid fa-book"></i></div>
+          <div class="title">Block B</div>
+          <div class="descr">Civil Block</div>
+        </li>
+      </div>
+
+      <div onclick="redirectToGoogleMaps4()">
+        <li >
+          <div class="icon"><i class="fa-solid fa-fan"></i></div>
+          <div class="title">Block C</div>
+          <div class="descr">EEE Block</div>
+        </li>
+      </div>
+
+      <div onclick="redirectToGoogleMaps5()"> 
+        <li >
+          <div class="icon"><i class="fa-solid fa-car"></i></div>
+          <div class="title">Block D</div>
+          <div class="descr">Mechanical Block</div>
+        </li>
+      </div>
+          
+      <div onclick="redirectToGoogleMaps6()">
+        <li >
+          <div class="icon"><i class="fa-solid fa-laptop"></i></div>
+          <div class="title">Siemens  Block</div>
+          <div class="descr">IT,CSE and Specializations</div>
+        </li>
+      </div>
+
+    </ol>
+    <script>
+      function redirectToGoogleMaps1() {
+        // Get the current location using Geolocation API
+        var optionSelected = document.querySelector(
+          'input[name="options"]:checked'
+        ).value;
+
+        if (optionSelected === "option1") {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              function (position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Get the destination address entered by the user
+                var destinationAddress = "vvit admin block";
+
+                // Construct the Google Maps URL with current location as source and destination address
+                var googleMapsUrl =
+                  "https://www.google.com/maps/dir/?api=1&origin=" +
+                  latitude +
+                  "," +
+                  longitude +
+                  "&destination=" +
+                  encodeURIComponent(destinationAddress);
+
+                // Redirect the user to the Google Maps URL
+                window.location.href = googleMapsUrl;
+              },
+              function () {
+                // Handle errors if geolocation fails
+                alert("Error: The Geolocation service failed.");
+              }
+            );
+          } else {
+            // Browser doesn't support Geolocation
+            alert("Error: Your browser doesn't support geolocation.");
+          }
+        } else {
+          var imageUrl = "central.png"; // Replace 'image_url_here' with the URL of the image you want to open
+          var left = (window.innerWidth - 600) / 2; // Adjust the width of the popup as per your image size
+          var top = (window.innerHeight - 400) / 2; // Adjust the height of the popup as per your image size
+          imagePopup = window.open(
+            imageUrl,
+            "_blank",
+            "width=600,height=400,left=" + left + ",top=" + top
+          );
+
+          // Add event listener to the document to close the popup when clicked outside of it
+          document.addEventListener("click", closeImagePopupOnClickOutside);
+        }
+      }
+
+      function redirectToGoogleMaps2() {
+        // Get the current location using Geolocation API
+        var optionSelected = document.querySelector(
+            'input[name="options"]:checked'
+          ).value;
+
+        if (optionSelected === "option1") {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              function (position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Get the destination address entered by the user
+                var destinationAddress = "vvit S & H block";
+
+                // Construct the Google Maps URL with current location as source and destination address
+                var googleMapsUrl =
+                  "https://www.google.com/maps/dir/?api=1&origin=" +
+                  latitude +
+                  "," +
+                  longitude +
+                  "&destination=" +
+                  encodeURIComponent(destinationAddress);
+
+                // Redirect the user to the Google Maps URL
+                window.location.href = googleMapsUrl;
+              },
+              function () {
+                // Handle errors if geolocation fails
+                alert("Error: The Geolocation service failed.");
+              }
+            );
+          } else {
+            // Browser doesn't support Geolocation
+            alert("Error: Your browser doesn't support geolocation.");
+          }
+        }
+        else{
+            var imageUrl = "Block_A.png"; // Replace 'image_url_here' with the URL of the image you want to open
+          var left = (window.innerWidth - 600) / 2; // Adjust the width of the popup as per your image size
+          var top = (window.innerHeight - 400) / 2; // Adjust the height of the popup as per your image size
+          imagePopup = window.open(
+            imageUrl,
+            "_blank",
+            "width=600,height=400,left=" + left + ",top=" + top
+          );
+
+          // Add event listener to the document to close the popup when clicked outside of it
+          document.addEventListener("click", closeImagePopupOnClickOutside);
+        }
+      }
+
+      function redirectToGoogleMaps3() {
+        // Get the current location using Geolocation API
+        var optionSelected = document.querySelector(
+            'input[name="options"]:checked'
+          ).value;
+
+        if (optionSelected === "option1") {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              function (position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Get the destination address entered by the user
+                var destinationAddress = "vvit civil block";
+
+                // Construct the Google Maps URL with current location as source and destination address
+                var googleMapsUrl =
+                  "https://www.google.com/maps/dir/?api=1&origin=" +
+                  latitude +
+                  "," +
+                  longitude +
+                  "&destination=" +
+                  encodeURIComponent(destinationAddress);
+
+                // Redirect the user to the Google Maps URL
+                window.location.href = googleMapsUrl;
+              },
+              function () {
+                // Handle errors if geolocation fails
+                alert("Error: The Geolocation service failed.");
+              }
+            );
+          } else {
+            // Browser doesn't support Geolocation
+            alert("Error: Your browser doesn't support geolocation.");
+          }
+        }
+            else{
+                var imageUrl = "Block_B.png"; // Replace 'image_url_here' with the URL of the image you want to open
+              var left = (window.innerWidth - 600) / 2; // Adjust the width of the popup as per your image size
+              var top = (window.innerHeight - 400) / 2; // Adjust the height of the popup as per your image size
+              imagePopup = window.open(
+                imageUrl,
+                "_blank",
+                "width=600,height=400,left=" + left + ",top=" + top
+              );
+    
+              // Add event listener to the document to close the popup when clicked outside of it
+              document.addEventListener("click", closeImagePopupOnClickOutside);
+            }
+        
+      }
+
+      function redirectToGoogleMaps4() 
+      {
+        // Get the current location using Geolocation API
+        var optionSelected = document.querySelector(
+            'input[name="options"]:checked'
+          ).value;
+
+        if (optionSelected === "option1") {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              function (position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Get the destination address entered by the user
+                var destinationAddress = "vvit EEE block";
+
+                // Construct the Google Maps URL with current location as source and destination address
+                var googleMapsUrl =
+                  "https://www.google.com/maps/dir/?api=1&origin=" +
+                  latitude +
+                  "," +
+                  longitude +
+                  "&destination=" +
+                  encodeURIComponent(destinationAddress);
+
+                // Redirect the user to the Google Maps URL
+                window.location.href = googleMapsUrl;
+              },
+              function () {
+                // Handle errors if geolocation fails
+                alert("Error: The Geolocation service failed.");
+              }
+            );
+          } else {
+            // Browser doesn't support Geolocation
+            alert("Error: Your browser doesn't support geolocation.");
+          }
+        }
+        else{
+            var imageUrl = "Block_C.png"; // Replace 'image_url_here' with the URL of the image you want to open
+          var left = (window.innerWidth - 600) / 2; // Adjust the width of the popup as per your image size
+          var top = (window.innerHeight - 400) / 2; // Adjust the height of the popup as per your image size
+          imagePopup = window.open(
+            imageUrl,
+            "_blank",
+            "width=600,height=400,left=" + left + ",top=" + top
+          );
+
+          // Add event listener to the document to close the popup when clicked outside of it
+          document.addEventListener("click", closeImagePopupOnClickOutside);
+        }
+      }
+      function redirectToGoogleMaps5() {
+        // Get the current location using Geolocation API
+        var optionSelected = document.querySelector(
+            'input[name="options"]:checked'
+          ).value;
+
+        if (optionSelected === "option1") {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              function (position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Get the destination address entered by the user
+                var destinationAddress = "vvit mech block";
+
+                // Construct the Google Maps URL with current location as source and destination address
+                var googleMapsUrl =
+                  "https://www.google.com/maps/dir/?api=1&origin=" +
+                  latitude +
+                  "," +
+                  longitude +
+                  "&destination=" +
+                  encodeURIComponent(destinationAddress);
+
+                // Redirect the user to the Google Maps URL
+                window.location.href = googleMapsUrl;
+              },
+              function () {
+                // Handle errors if geolocation fails
+                alert("Error: The Geolocation service failed.");
+              }
+            );
+          } else {
+            // Browser doesn't support Geolocation
+            alert("Error: Your browser doesn't support geolocation.");
+          }
+        }
+        else{
+            var imageUrl = "Block_D.png"; // Replace 'image_url_here' with the URL of the image you want to open
+          var left = (window.innerWidth - 600) / 2; // Adjust the width of the popup as per your image size
+          var top = (window.innerHeight - 400) / 2; // Adjust the height of the popup as per your image size
+          imagePopup = window.open(
+            imageUrl,
+            "_blank",
+            "width=600,height=400,left=" + left + ",top=" + top
+          );
+
+          // Add event listener to the document to close the popup when clicked outside of it
+          document.addEventListener("click", closeImagePopupOnClickOutside);
+        }
+      }
+      function redirectToGoogleMaps6() {
+        // Get the current location using Geolocation API
+        var optionSelected = document.querySelector(
+            'input[name="options"]:checked'
+          ).value;
+
+        if (optionSelected === "option1") {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              function (position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Get the destination address entered by the user
+                var destinationAddress = "vvit siemens block";
+
+                // Construct the Google Maps URL with current location as source and destination address
+                var googleMapsUrl =
+                  "https://www.google.com/maps/dir/?api=1&origin=" +
+                  latitude +
+                  "," +
+                  longitude +
+                  "&destination=" +
+                  encodeURIComponent(destinationAddress);
+
+                // Redirect the user to the Google Maps URL
+                window.location.href = googleMapsUrl;
+              },
+              function () {
+                // Handle errors if geolocation fails
+                alert("Error: The Geolocation service failed.");
+              }
+            );
+          } else {
+            // Browser doesn't support Geolocation
+            alert("Error: Your browser doesn't support geolocation.");
+          }
+        }
+        else{
+            var imageUrl = "siemens.png"; // Replace 'image_url_here' with the URL of the image you want to open
+          var left = (window.innerWidth - 600) / 2; // Adjust the width of the popup as per your image size
+          var top = (window.innerHeight - 400) / 2; // Adjust the height of the popup as per your image size
+          imagePopup = window.open(
+            imageUrl,
+            "_blank",
+            "width=600,height=400,left=" + left + ",top=" + top
+          );
+
+          // Add event listener to the document to close the popup when clicked outside of it
+          document.addEventListener("click", closeImagePopupOnClickOutside);
+        }
+      }
+      document
+        .getElementById("mobile-menu")
+        .addEventListener("click", function () {
+          document.getElementById("nav").classList.toggle("active");
+          document
+            .querySelectorAll(".menu-toggle span")
+            .forEach((span) => span.classList.toggle("open"));
+        });
+    </script>
+  </body>
+</html>
